@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+
+        <table style="width: 400px;">
+            <tr>
+                <td colspan="3">
+                    <center><h1>
+                        Calculator
+                    </h1></center>
+                </td>
+                <td>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    X:
+                </td>
+                <td>
+                    <input type="text" id="txtX">
+                </td>
+                <td>
+                    <div id="divX" style="color: red;"></div>
+                </td>
+                <td>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Y:
+                </td>
+                <td>
+                    <input type="text" id="txtY">
+                </td>
+                <td>
+                    <div id="divY" style="color: red;"></div>
+                </td>
+                <td>
+
+                </td>
+            </tr>
+            <tr>
+                <td>Result:</td>
+                <td colspan="2">
+                    <div id="divR" style="color: black;"></div>
+                </td>
+                <td>
+
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <input type="button" value="Addition" onclick="Add()">
+                </td>
+                <td >
+                   
+                    <input type="button" value="Subtraction" onclick="Sub()">
+                
+                    
+                </td>
+                <td>
+               
+                    <input type="button" value="Multiplication" onclick="Mul()">
+               
+                </td>
+                <td >
+                    <input  type="button" value="Division" onclick="Div()">
+                </td 
+          </tr>    
+        </table>
+    </center>
+    <script>
+        function Add()
+        {
+             var reftotxtX=document.getElementById("txtX");
+             var reftotxtY=document.getElementById("txtY");
+             var reftotxtR=document.getElementById("divR");
+
+             var isXNumber=false;
+             var isYNumber=false;
+
+             var isBoxEmpty=isEmpty("txtX","divX","Enter X");
+            if(isBoxEmpty==false)
+            {
+                isXNumber=isItnumber("txtX","divX"," X should be number");
+            }
+
+
+             var isBoxEmpty=isEmpty("txtY","divY","Enter Y");
+            if(isBoxEmpty==false)
+            {
+                isYNumber=isItnumber("txtY","divY","Y should be number");
+            }
+
+
+            if(isXNumber==true && isYNumber==true)
+            {
+                var xData=parseInt(reftotxtX.value);
+                var yData=parseInt(reftotxtY.value);
+
+                var result=xData+yData;
+                reftotxtR.innerText=result;
+            }
+            else{
+                reftotxtR.innerText="";
+            }
+        }
+
+        function Sub()
+        {
+             var reftotxtX=document.getElementById("txtX");
+             var reftotxtY=document.getElementById("txtY");
+             var reftotxtR=document.getElementById("divR");
+
+             var isXNumber=false;
+             var isYNumber=false;
+
+             var isBoxEmpty=isEmpty("txtX","divX","Enter X");
+            if(isBoxEmpty==false)
+            {
+                isXNumber=isItnumber("txtX","divX"," X should be number");
+            }
+
+
+             var isBoxEmpty=isEmpty("txtY","divY","Enter Y");
+            if(isBoxEmpty==false)
+            {
+                isYNumber=isItnumber("txtY","divY","Y should be number");
+            }
+
+
+            if(isXNumber==true && isYNumber==true)
+            {
+                var xData=parseInt(reftotxtX.value);
+                var yData=parseInt(reftotxtY.value);
+
+                var result=xData-yData;
+                reftotxtR.innerText=result;
+            }
+            else{
+                reftotxtR.innerText="";
+            }
+        }
+
+        function Div()
+        {
+             var reftotxtX=document.getElementById("txtX");
+             var reftotxtY=document.getElementById("txtY");
+             var reftotxtR=document.getElementById("divR");
+
+             var isXNumber=false;
+             var isYNumber=false;
+
+             var isBoxEmpty=isEmpty("txtX","divX","Enter X");
+            if(isBoxEmpty==false)
+            {
+                isXNumber=isItnumber("txtX","divX"," X should be number");
+            }
+
+
+             var isBoxEmpty=isEmpty("txtY","divY","Enter Y");
+            if(isBoxEmpty==false)
+            {
+                isYNumber=isItnumber("txtY","divY","Y should be number");
+            }
+
+
+            if(isXNumber==true && isYNumber==true)
+            {
+                var xData=parseInt(reftotxtX.value);
+                var yData=parseInt(reftotxtY.value);
+
+                var result=xData/yData;
+                reftotxtR.innerText=result;
+            }
+            else{
+                reftotxtR.innerText="";
+            }
+        }
+
+        function Mul()
+        {
+             var reftotxtX=document.getElementById("txtX");
+             var reftotxtY=document.getElementById("txtY");
+             var reftotxtR=document.getElementById("divR");
+
+             var isXNumber=false;
+             var isYNumber=false;
+
+             var isBoxEmpty=isEmpty("txtX","divX","Enter X");
+            if(isBoxEmpty==false)
+            {
+                isXNumber=isItnumber("txtX","divX"," X should be number");
+            }
+
+
+             var isBoxEmpty=isEmpty("txtY","divY","Enter Y");
+            if(isBoxEmpty==false)
+            {
+                isYNumber=isItnumber("txtY","divY","Y should be number");
+            }
+
+
+            if(isXNumber==true && isYNumber==true)
+            {
+                var xData=parseInt(reftotxtX.value);
+                var yData=parseInt(reftotxtY.value);
+
+                var result=xData*yData;
+                reftotxtR.innerText=result;
+            }
+            else{
+                reftotxtR.innerText="";
+            }
+        }
+
+
+
+            function isItnumber(controlid,divid,errorid)
+            {
+                var reftotxtbox=document.getElementById(controlid);
+                var reftodivbox=document.getElementById(divid);
+
+              var  isItnumber=false;
+                var insidebox=isNaN(reftotxtbox.value)
+                if(insidebox==true)
+                {
+                   reftodivbox.innerText= errorid;
+                   isItnumber=false;
+                }
+                else
+                {
+                    reftodivbox.innerText="";
+                    isItnumber=true;
+                }
+
+                return isItnumber;
+            }
+
+
+            function isEmpty(controlid,errorcontrolid,errormessage)
+             {
+                var refToTxtBox=document.getElementById(controlid);
+                var reftoDivBoX=document.getElementById(errorcontrolid);
+            
+                
+                var insideBox=refToTxtBox.value;
+
+                var isBoxEmpty=true;
+                if(insideBox!="")
+                {
+                    reftoDivBoX.innerText="";
+                    isBoxEmpty=false;
+                 }
+                else{
+                    reftoDivBoX.innerText=errormessage;
+                    isBoxEmpty=true;
+                }
+                return isBoxEmpty;
+             }
+
+
+
+       
+
+        //     isEmptyX()
+        //     {
+        //     var reftoX=document.getElementById("txtX");
+        //     var reftodivX=document.getElementById("divX");
+
+        //     var insideXbox=reftoX.vlaue;
+        //     if(insideXbox!="")
+        //     {
+        //         reftodivX.innerText="";
+        //     }
+        //     else{
+        //         reftodivX.innerText="Insert X";
+        //     }
+        // }
+
+        //     isEmptyY()
+        // {
+        //     var reftoY=document.getElementById("txtY");
+        //     var reftodivY=document.getElementById("divY");
+
+        //     var insideYbox=reftoY.value;
+
+        //     if(insideYbox!="")
+        //     {
+        //         reftodivY.innerText="";
+
+        //     }
+        //     else{
+        //         reftodivY.innerText="Insert Y";
+        //     }
+        // }
+
+       
+
+        
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
