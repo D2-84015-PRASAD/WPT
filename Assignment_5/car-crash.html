@@ -1,0 +1,83 @@
+
+<html>
+<head>
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0%;
+            padding: 0%;
+        }
+    </style>
+</head>
+<body>
+<div alt="" style="position: absolute; margin-top: 71px; left: -1%; height: 120px;" id="car"><img style="height: 120px;" src="./car.jpg" ></div>
+
+    <div style="width: 53%; height: 30px; background-color: black; margin-top: 150px; position: absolute;"> </div>
+    <button onclick="Move()" style="position: absolute; margin-top: 190px; left: 10px;">start</button><br>
+    <button onclick="stop()"  style="position: absolute; margin-top: 172px; left: 60px;">stop</button>
+    <div  >x axis: <span style="border: 1;border-color: black;border-style: solid;display: inline-block;width: 80px;height: 15px;" id="xaxis"></span> </div>
+          <div  >y axis: <span style="border: 1;border-color: black;border-style: solid;display: inline-block;width: 80px;height: 15px;" id="yaxis"></span> </div>
+
+<script>
+   var arrayOfQueues=new Array();
+        var leftVal = -25;
+        var topval=0;
+        var s=0;
+        var u=0;
+
+        function AXIS(){
+           
+           
+        }
+
+        function Move(){
+            var QNO=setInterval(Moveing,150);
+            arrayOfQueues.push(QNO);
+            console.log();
+
+        }
+        function stop(){
+            for(var i=0;i<arrayOfQueues.length;i++)
+            {
+                var qToStop=arrayOfQueues[i];
+                clearInterval(qToStop); 
+            }
+        }
+
+        function Moveing() {
+            var refTomyDiv = document.getElementById("car");
+            if(leftVal!=795)
+            {   
+            leftVal = leftVal + 10;
+            s=leftVal;
+            refTomyDiv.style.left = leftVal + "px";
+
+            var refToX=document.getElementById("xaxis");
+           
+            refToX.innerText=leftVal;
+          
+        }
+            else if(topval!=200){
+               
+                topval=topval+10;
+                u=topval;
+           // console.log(u);
+                refTomyDiv.style.top=topval+"px";
+                var refToY=document.getElementById("yaxis");
+                refToY.innerText=topval;
+                
+            }
+            else {
+                refTomyDiv.style.backgroundColor="yellow";
+                
+                refTomyDiv.style.opacity="0.5"; 
+                var reftodiv1=document.getElementById("car");
+                reftodiv1.innerText="car dropped";
+                
+
+            }}
+</script>
+    
+    
+</body>
+</html>
